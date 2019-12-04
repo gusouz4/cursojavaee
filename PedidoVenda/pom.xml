@@ -100,6 +100,21 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Abstração para envio de e-mails -->
+		<dependency>
+			<groupId>com.github.jhonyscamacho</groupId>
+			<artifactId>simple-email</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<!-- Requerido para envio de e-mails -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- API de Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
