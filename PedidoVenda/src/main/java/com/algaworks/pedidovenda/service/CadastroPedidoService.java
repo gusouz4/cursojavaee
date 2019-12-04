@@ -26,6 +26,7 @@ public class CadastroPedidoService implements Serializable {
 		
 		pedido.recalcularValorTotal();
 		
+		
 		if (pedido.getItens().isEmpty()) {
 			throw new NegocioException("O pedido deve possuir pelo menos um item.");
 		}
