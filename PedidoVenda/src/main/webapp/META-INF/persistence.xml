@@ -4,17 +4,21 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
 	<persistence-unit name="PedidoPU">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
-		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/cursojavaee" />
-			<property name="javax.persistence.jdbc.user" value="gustavo" />
-			<property name="javax.persistence.jdbc.password" value="123456" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			
-			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-		</properties>
-	</persistence-unit>
+      <properties>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+         <property name="hibernate.connection.username" value="gustavo"/>
+         <property name="hibernate.connection.password" value="123456"/>
+         <property name="hibernate.connection.url" value="jdbc:mysql://localhost/cursojavaee"/>
+         <property name="hibernate.max_fetch_depth" value="3"/>
+         <property name="hibernate.format_sql" value="true" />
+         <property name="hibernate.use_sql_comments" value="false" />
+         <property name="hibernate.hbm2ddl.auto" value="update" />
+         <property name="hibernate.show_sql" value="true" />
+         <property name="hibernate.jdbc.batch_size" value="50" />
+       
+         <!-- alternatively to <class> and <property> declarations, you can use a regular hibernate.cfg.xml file -->
+         <!-- property name="hibernate.ejb.cfgfile" value="/org/hibernate/ejb/test/hibernate.cfg.xml"/ -->
+      </properties>
+   </persistence-unit>
 </persistence>
