@@ -115,6 +115,20 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Usamos para templates de emails -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<!-- Usamos para formatar números em templates -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>2.0</version>
+		</dependency>
+
 		<!-- API de Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
