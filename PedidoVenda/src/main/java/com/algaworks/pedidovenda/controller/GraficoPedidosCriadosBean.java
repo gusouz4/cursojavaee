@@ -22,11 +22,7 @@ public class GraficoPedidosCriadosBean {
 	private void adicionarSerie(String rotulo) {
 		ChartSeries series = new ChartSeries(rotulo);
 		
-		series.set("1", Math.random() * 1000);
-		series.set("2", Math.random() * 1000);
-		series.set("3", Math.random() * 1000);
-		series.set("4", Math.random() * 1000);
-		series.set("5", Math.random() * 1000);
+		
 		
 		this.model.addSeries(series);
 	}
