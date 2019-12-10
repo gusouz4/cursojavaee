@@ -32,7 +32,7 @@ public class LoginBean implements Serializable {
 	private String email;
 
 	public void preRender() {
-		if("true".equals(request.getParameter("invalid"))) {
+		if ("true".equals(request.getParameter("invalid"))) {
 			FacesUtil.addErrorMessage("Usuário ou senha inválido!");
 		}
 	}
@@ -51,5 +51,5 @@ public class LoginBean implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 }

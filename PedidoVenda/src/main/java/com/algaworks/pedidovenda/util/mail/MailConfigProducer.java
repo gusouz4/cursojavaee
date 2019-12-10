@@ -25,7 +25,6 @@ public class MailConfigProducer {
 		config.setUsername(props.getProperty("mail.username"));
 		config.setPassword(props.getProperty("mail.password"));
 		
-		
 		return config;
 	}
 	

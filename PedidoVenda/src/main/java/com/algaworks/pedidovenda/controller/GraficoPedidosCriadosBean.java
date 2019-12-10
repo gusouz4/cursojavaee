@@ -32,20 +32,20 @@ public class GraficoPedidosCriadosBean {
 	private UsuarioSistema usuarioLogado;
 	
 	private CartesianChartModel model;
-	
+
 	public void preRender() {
 		this.model = new CartesianChartModel();
 		
 		adicionarSerie("Todos os pedidos", null);
 		adicionarSerie("Meus pedidos", usuarioLogado.getUsuario());
 	}
-
+	
 	private void adicionarSerie(String rotulo, Usuario criadoPor) {
 		Map<Date, BigDecimal> valoresPorData = this.pedidos.valoresTotaisPorData(15, criadoPor);
 		
 		ChartSeries series = new ChartSeries(rotulo);
 		
-		for(Date data : valoresPorData.keySet()) {
+		for (Date data : valoresPorData.keySet()) {
 			series.set(DATE_FORMAT.format(data), valoresPorData.get(data));
 		}
 		
@@ -55,5 +55,5 @@ public class GraficoPedidosCriadosBean {
 	public CartesianChartModel getModel() {
 		return model;
 	}
-
+	
 }

@@ -21,7 +21,7 @@ import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.validation.SKU;
 
 @Entity
-@Table(name = "produto")
+@Table(name="produto")
 public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -54,8 +54,7 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	@NotBlank
-	@SKU
+	@NotBlank @SKU
 	@Column(nullable = false, length = 20, unique = true)
 	public String getSku() {
 		return sku;
@@ -66,7 +65,7 @@ public class Produto implements Serializable {
 	}
 
 	@NotNull(message = "é obrigatório")
-	@Column(name = "valor_unitario", nullable = false, precision = 10, scale = 2)
+	@Column(name="valor_unitario", nullable = false, precision = 10, scale = 2)
 	public BigDecimal getValorUnitario() {
 		return valorUnitario;
 	}
@@ -75,10 +74,8 @@ public class Produto implements Serializable {
 		this.valorUnitario = valorUnitario;
 	}
 
-	@NotNull
-	@Min(0)
-	@Max(value = 9999, message = "tem um valor muito alto")
-	@Column(name = "quantidade_estoque", nullable = false, length = 5)
+	@NotNull @Min(0) @Max(value = 9999, message = "tem um valor muito alto")
+	@Column(name="quantidade_estoque", nullable = false, length = 5)
 	public Integer getQuantidadeEstoque() {
 		return quantidadeEstoque;
 	}
@@ -125,14 +122,13 @@ public class Produto implements Serializable {
 
 	public void baixarEstoque(Integer quantidade) {
 		int novaQuantidade = this.getQuantidadeEstoque() - quantidade;
-
+		
 		if (novaQuantidade < 0) {
-			throw new NegocioException(
-					"Não há disponibilidade no estoque de " + quantidade + " itens do produto " + this.getSku() + ".");
+			throw new NegocioException("Não há disponibilidade no estoque de "
+					+ quantidade + " itens do produto " + this.getSku() + ".");
 		}
-
+		
 		this.setQuantidadeEstoque(novaQuantidade);
-
 	}
 
 	public void adicionarEstoque(Integer quantidade) {

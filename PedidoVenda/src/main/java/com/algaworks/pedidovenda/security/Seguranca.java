@@ -9,11 +9,10 @@ import javax.inject.Named;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-
 @Named
 @RequestScoped
 public class Seguranca {
-	
+
 	@Inject
 	private ExternalContext externalContext;
 	
@@ -22,7 +21,7 @@ public class Seguranca {
 		
 		UsuarioSistema usuarioLogado = getUsuarioLogado();
 		
-		if(usuarioLogado != null) {
+		if (usuarioLogado != null) {
 			nome = usuarioLogado.getUsuario().getNome();
 		}
 		
@@ -34,11 +33,10 @@ public class Seguranca {
 	public UsuarioSistema getUsuarioLogado() {
 		UsuarioSistema usuario = null;
 		
-		UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken)
+		UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) 
 				FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
 		
-		
-		if(auth != null && auth.getPrincipal() != null) {
+		if (auth != null && auth.getPrincipal() != null) {
 			usuario = (UsuarioSistema) auth.getPrincipal();
 		}
 		
@@ -46,10 +44,13 @@ public class Seguranca {
 	}
 	
 	public boolean isEmitirPedidoPermitido() {
-		return externalContext.isUserInRole("ADMINISTRADORES") || externalContext.isUserInRole("VENDEDORES");
+		return externalContext.isUserInRole("ADMINISTRADORES") 
+				|| externalContext.isUserInRole("VENDEDORES");
 	}
 	
 	public boolean isCancelarPedidoPermitido() {
-		return externalContext.isUserInRole("ADMINISTRADORES") || externalContext.isUserInRole("VENDEDORES");
+		return externalContext.isUserInRole("ADMINISTRADORES") 
+				|| externalContext.isUserInRole("VENDEDORES");
 	}
+	
 }

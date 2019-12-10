@@ -14,15 +14,16 @@
 	
         <p:outputLabel value="Logradouro" for="entregaLogradouro" />
         <p:inputText id="entregaLogradouro" size="50" 
-        	value="#{cadastroPedidoBean.pedido.enderecoEntrega.logradouro}" disabled="#{cadastroPedidoBean.pedido.naoAlteravel}" />
+        	value="#{cadastroPedidoBean.pedido.enderecoEntrega.logradouro}" 
+        	disabled="#{cadastroPedidoBean.pedido.naoAlteravel}" />
 
         <p:outputLabel value="Número" for="entregaNumero" />
-        <p:inputText id="entregaNumero" size="5" value="#{cadastroPedidoBean.pedido.enderecoEntrega.numero}"
+        <p:inputText id="entregaNumero" size="5" value="#{cadastroPedidoBean.pedido.enderecoEntrega.numero}" 
         	disabled="#{cadastroPedidoBean.pedido.naoAlteravel}"/>
 
         <p:outputLabel value="Complemento" for="entregaComplemento" />
         <p:inputText id="entregaComplemento" size="50" value="#{cadastroPedidoBean.pedido.enderecoEntrega.complemento}" 
-       		disabled="#{cadastroPedidoBean.pedido.naoAlteravel}"/>
+        	disabled="#{cadastroPedidoBean.pedido.naoAlteravel}"/>
 
         <p:outputLabel value="Cidade" for="entregaCidade" />
         <p:inputText id="entregaCidade" size="20" value="#{cadastroPedidoBean.pedido.enderecoEntrega.cidade}" 

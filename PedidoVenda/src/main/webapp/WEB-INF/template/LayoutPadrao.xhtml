@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -42,11 +42,14 @@
 							<p:menuitem value="Usuários" />
 							<p:separator/>
 							<p:menuitem value="Categorias" />
-							<p:menuitem value="Produtos" outcome="/produtos/CadastroProduto" />
+							<p:menuitem value="Produtos" outcome="/produtos/PesquisaProdutos" />
 						</p:submenu>
 						<p:submenu label="Pedidos">
 							<p:menuitem value="Novo pedido" outcome="/pedidos/CadastroPedido" />
 							<p:menuitem value="Pesquisa" outcome="/pedidos/PesquisaPedidos" />
+						</p:submenu>
+						<p:submenu label="Relatórios">
+							<p:menuitem value="Pedidos emitidos" outcome="/relatorios/RelatorioPedidosEmitidos" />
 						</p:submenu>
 						<p:menuitem value="Sair" url="/j_spring_security_logout" />
 					</p:menubar>

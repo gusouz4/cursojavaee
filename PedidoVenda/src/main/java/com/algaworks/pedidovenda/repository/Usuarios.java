@@ -31,10 +31,11 @@ public class Usuarios implements Serializable {
 		
 		try {
 			usuario = this.manager.createQuery("from Usuario where lower(email) = :email", Usuario.class)
-					.setParameter("email", email.toLowerCase()).getSingleResult();
-		}catch(NoResultException e){
+				.setParameter("email", email.toLowerCase()).getSingleResult();
+		} catch (NoResultException e) {
 			// nenhum usuário encontrado com o e-mail informado
 		}
+		
 		return usuario;
 	}
 	

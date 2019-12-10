@@ -23,11 +23,12 @@ public class CancelamentoPedidoService implements Serializable {
 	public Pedido cancelar(Pedido pedido) {
 		pedido = this.pedidos.porId(pedido.getId());
 		
-		if(pedido.isNaoCancelavel()) {
-			throw new NegocioException("Pedido não pode ser cancelado no status " + pedido.getStatus().getDescricao() + ".");
+		if (pedido.isNaoCancelavel()) {
+			throw new NegocioException("Pedido não pode ser cancelado no status "
+					+ pedido.getStatus().getDescricao() + ".");
 		}
 		
-		if(pedido.isEmitido()) {
+		if (pedido.isEmitido()) {
 			this.estoqueService.retornarItensEstoque(pedido);
 		}
 		

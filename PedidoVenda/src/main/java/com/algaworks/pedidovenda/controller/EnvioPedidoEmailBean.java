@@ -17,7 +17,7 @@ import com.outjected.email.impl.templating.velocity.VelocityTemplate;
 
 @Named
 @RequestScoped
-public class EnvioPedidoEmailBean implements Serializable{
+public class EnvioPedidoEmailBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,14 +32,15 @@ public class EnvioPedidoEmailBean implements Serializable{
 		MailMessage message = mailer.novaMensagem();
 		
 		message.to(this.pedido.getCliente().getEmail())
-		.subject("Pedido "+this.pedido.getId())
-		.bodyHtml(new VelocityTemplate(getClass().getResourceAsStream("/emails/pedido.template")))
-		.put("pedido", this.pedido)
-		.put("numberTool", new NumberTool())
-		.put("locale", new Locale("pt", "BR"))
-		.send();
+			.subject("Pedido " + this.pedido.getId())
+			.bodyHtml(new VelocityTemplate(getClass().getResourceAsStream("/emails/pedido.template")))
+			.put("pedido", this.pedido)
+			.put("numberTool", new NumberTool())
+			.put("locale", new Locale("pt", "BR"))
+			.send();
 		
 		FacesUtil.addInfoMessage("Pedido enviado por e-mail com sucesso!");
 	}
+	
 	
 }

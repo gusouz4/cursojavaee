@@ -57,10 +57,6 @@ public class CadastroPedidoBean implements Serializable {
 		limpar();
 	}
 	
-	public void pedidoAlterado(@Observes PedidoAlteradoEvent event) {
-		this.pedido = event.getPedido();
-	}
-	
 	public void inicializar() {
 		if (FacesUtil.isNotPostback()) {
 			this.vendedores = this.usuarios.vendedores();
@@ -74,6 +70,10 @@ public class CadastroPedidoBean implements Serializable {
 	private void limpar() {
 		pedido = new Pedido();
 		pedido.setEnderecoEntrega(new EnderecoEntrega());
+	}
+	
+	public void pedidoAlterado(@Observes PedidoAlteradoEvent event) {
+		this.pedido = event.getPedido();
 	}
 	
 	public void salvar() {

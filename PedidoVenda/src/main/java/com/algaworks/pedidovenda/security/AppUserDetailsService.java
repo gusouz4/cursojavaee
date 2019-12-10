@@ -21,16 +21,17 @@ public class AppUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Usuarios usuarios = CDIServiceLocator.getBean(Usuarios.class);
 		Usuario usuario = usuarios.porEmail(email);
+		
 		UsuarioSistema user = null;
 		
-		if(usuario != null) {
+		if (usuario != null) {
 			user = new UsuarioSistema(usuario, getGrupos(usuario));
 		}
 		
 		return user;
 	}
 
-	private Collection<? extends GrantedAuthority> getGrupos(Usuario usuario) {	
+	private Collection<? extends GrantedAuthority> getGrupos(Usuario usuario) {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 		
 		for (Grupo grupo : usuario.getGrupos()) {

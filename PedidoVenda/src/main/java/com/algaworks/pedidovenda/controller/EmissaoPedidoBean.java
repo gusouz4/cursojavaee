@@ -32,10 +32,10 @@ public class EmissaoPedidoBean implements Serializable {
 		
 		try {
 			this.pedido = this.emissaoPedidoService.emitir(this.pedido);
-			pedidoAlteradoEvent.fire(new PedidoAlteradoEvent(this.pedido));
+			this.pedidoAlteradoEvent.fire(new PedidoAlteradoEvent(this.pedido));
 			
 			FacesUtil.addInfoMessage("Pedido emitido com sucesso!");
-		}finally {
+		} finally {
 			this.pedido.adicionarItemVazio();
 		}
 	}
