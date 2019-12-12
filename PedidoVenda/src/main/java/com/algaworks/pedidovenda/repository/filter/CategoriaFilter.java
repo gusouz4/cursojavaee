@@ -10,7 +10,7 @@ public class CategoriaFilter implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String descricao;
-	private List<Categoria> categoria_pai;
+	private List<Categoria> categoriaPai;
 
 	public String getDescricao() {
 		return descricao;
@@ -20,12 +20,12 @@ public class CategoriaFilter implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public List<Categoria> getCategoria_pai() {
-		return categoria_pai;
+	public List<Categoria> getCategoriaPai() {
+		return categoriaPai;
 	}
 
-	public void setCategoria_pai(List<Categoria> categoria_pai) {
-		this.categoria_pai = categoria_pai;
+	public void setCategoriaPai(List<Categoria> categoriaPai) {
+		this.categoriaPai = categoriaPai;
 	}
 
 }
