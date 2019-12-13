@@ -8,17 +8,16 @@ public class ClienteFilter implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long cpf;
+	private String documentoReceitaFederal;
 	private String nome;
 	private String email;
 
-	@CPF
-	public Long getCpf() {
-		return cpf;
+	public String getDocumentoReceitaFederal() {
+		return documentoReceitaFederal;
 	}
 
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
+	public void setDocumentoReceitaFederal(String documentoReceitaFederal) {
+		this.documentoReceitaFederal = documentoReceitaFederal;
 	}
 
 	public String getNome() {

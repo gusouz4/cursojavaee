@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.algaworks.pedidovenda.model.Cliente;
+import com.algaworks.pedidovenda.model.Endereco;
 import com.algaworks.pedidovenda.repository.Clientes;
 import com.algaworks.pedidovenda.service.CadastroClienteService;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
@@ -25,8 +26,11 @@ public class CadastroClienteBean implements Serializable {
 
 	private Cliente cliente;
 
+	private Endereco endereco;
+
 	public CadastroClienteBean() {
 		limpar();
+		this.endereco = new Endereco();
 	}
 
 	public void limpar() {
@@ -64,8 +68,16 @@ public class CadastroClienteBean implements Serializable {
 		this.cliente = cliente;
 	}
 
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	public boolean isEditando() {
 		return this.cliente.getId() != null;
 	}
-	
+
 }

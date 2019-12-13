@@ -71,8 +71,8 @@ public class Clientes implements Serializable {
 			criteria.add(Restrictions.ilike("email", filtro.getEmail(), MatchMode.ANYWHERE));
 		}
 		
-		if (filtro.getCpf() != null) {
-			criteria.add(Restrictions.eq("cpf", filtro.getCpf()));
+		if (StringUtils.isNotBlank(filtro.getDocumentoReceitaFederal())) {
+			criteria.add(Restrictions.ilike("documentoReceitaFederal", filtro.getDocumentoReceitaFederal(), MatchMode.ANYWHERE));
 		}
 		
 		

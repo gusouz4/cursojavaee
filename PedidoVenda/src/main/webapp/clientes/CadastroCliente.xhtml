@@ -6,6 +6,10 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:o="http://omnifaces.org/ui">
 
+	<f:metadata>
+		<f:event listener="#{radioView.carregarTipos}" type="preRenderView" />
+	</f:metadata>
+
     <ui:define name="titulo">#{cadastroClienteBean.editando ? 'Edição de cliente' : 'Novo cliente'}</ui:define>
     
     <ui:define name="corpo">
@@ -36,14 +40,33 @@
 	    		<p:inputText id="cpf" size="14" maxlength="14" value="#{cadastroClienteBean.cliente.documentoReceitaFederal}" />
 	    		
 	    		<p:outputLabel value="E-mail" for="email"/>
-	    		<p:inputText id="email" size="14" maxlength="14" value="#{cadastroClienteBean.cliente.email}" />
+	    		<p:inputText id="email" size="60" maxlength="60" value="#{cadastroClienteBean.cliente.email}" />
 	    		
 	    		<p:outputLabel for="tipo" value="Tipo" />
-        		<p:selectOneRadio id="tipo" value="#{radioView.tipo}" unselectable="true">
-            	<f:selectItems value="#{radioView.tipos}" var="tipo" itemLabel="#{tipo}" itemValue="#{tipo}"/>
+        		<p:selectOneRadio id="tipo" value="#{radioView.tipoPessoa}" unselectable="true">
+            	<f:selectItems value="#{radioView.tipos}" var="tipos" itemLabel="#{tipos.descricao}" itemValue="#{tipos}"/>
         		</p:selectOneRadio>
 	    		
-	    	</p:panelGrid>
+	    		<p:outputLabel value="CEP" for="cep" />
+        		<p:inputText id="cep" size="10" value="#{cadastroClienteBean.endereco.cep}" />
+	    		
+	    		<p:outputLabel value="Logradouro" for="logradouro" />
+        		<p:inputText id="logradouro" size="50" value="#{cadastroClienteBean.endereco.logradouro}" />
+
+        		<p:outputLabel value="Número" for="numero" />
+        		<p:inputText id="numero" size="5" value="#{cadastroClienteBean.endereco.numero}" />
+
+       			<p:outputLabel value="Complemento" for="complemento" />
+       			<p:inputText id="complemento" size="50" value="#{cadastroClienteBean.endereco.complemento}" />
+
+        		<p:outputLabel value="Cidade" for="cidade" />
+        		<p:inputText id="cidade" size="20" value="#{cadastroClienteBean.endereco.cidade}" />
+
+        		<p:outputLabel value="Estado" for="estado" />
+       			<p:inputText id="estado" size="20" value="#{cadastroClienteBean.endereco.uf}" />
+
+				</p:panelGrid>
+	    		
     	</h:form>
     </ui:define>
 </ui:composition>
