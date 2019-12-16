@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "endereco")
@@ -36,6 +39,7 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(nullable = false, length = 150)
+	@NotBlank
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -45,6 +49,7 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(nullable = false, length = 20)
+	@NotBlank
 	public String getNumero() {
 		return numero;
 	}
@@ -63,6 +68,7 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(nullable = false, length = 60)
+	@NotBlank
 	public String getCidade() {
 		return cidade;
 	}
@@ -72,6 +78,7 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(nullable = false, length = 60)
+	@NotBlank
 	public String getUf() {
 		return uf;
 	}
@@ -81,6 +88,7 @@ public class Endereco implements Serializable {
 	}
 
 	@Column(nullable = false, length = 9)
+	@NotBlank
 	public String getCep() {
 		return cep;
 	}

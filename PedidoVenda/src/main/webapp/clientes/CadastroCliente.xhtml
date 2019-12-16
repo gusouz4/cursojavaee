@@ -7,14 +7,28 @@
     xmlns:o="http://omnifaces.org/ui">
 
 	<f:metadata>
+   		<o:viewParam name="cliente" value="#{cadastroClienteBean.cliente}" />
 		<f:event listener="#{radioView.carregarTipos}" type="preRenderView" />
 	</f:metadata>
 
     <ui:define name="titulo">#{cadastroClienteBean.editando ? 'Edição de cliente' : 'Novo cliente'}</ui:define>
     
     <ui:define name="corpo">
-    
+   
+   <style>
+	.sem-bordas td {
+	border: none;
+	padding: 5px;
+	}
+
+	.cel-radio td {
+	text-align: center;
+	}
+	</style>
+    	
     	<h:form>
+    	<link rel="stylesheet" type="text/css" href="sistema.css" />
+	    	
 	    	<h1>#{cadastroClienteBean.editando ? 'Edição de cliente' : 'Novo cliente'}</h1>
 	    	
 	    	<p:messages autoUpdate="true" closable="true" />
@@ -43,7 +57,7 @@
 	    		<p:inputText id="email" size="60" maxlength="60" value="#{cadastroClienteBean.cliente.email}" />
 	    		
 	    		<p:outputLabel for="tipo" value="Tipo" />
-        		<p:selectOneRadio id="tipo" value="#{radioView.tipoPessoa}" unselectable="true">
+        		<p:selectOneRadio styleClass="sem-bordas" id="tipo" value="#{cadastroClienteBean.cliente.tipo}" unselectable="true">
             	<f:selectItems value="#{radioView.tipos}" var="tipos" itemLabel="#{tipos.descricao}" itemValue="#{tipos}"/>
         		</p:selectOneRadio>
 	    		

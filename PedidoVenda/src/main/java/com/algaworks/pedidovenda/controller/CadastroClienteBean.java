@@ -1,6 +1,7 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -35,9 +36,17 @@ public class CadastroClienteBean implements Serializable {
 
 	public void limpar() {
 		cliente = new Cliente();
+		endereco = new Endereco();
 	}
 
 	public void salvar() {
+		if(this.cliente.getEnderecos() == null) {
+			this.cliente.setEnderecos(new ArrayList<Endereco>());
+		}
+		this.endereco.setCliente(cliente);
+		
+		this.cliente.getEnderecos().add(this.endereco);
+		
 		this.cliente = cadastroClienteService.salvar(this.cliente);
 		limpar();
 

@@ -34,6 +34,7 @@
 	    		
 	    		<p:outputLabel value="E-mail" for="email"/>
 	    		<p:inputText id="email" size="60" value="#{pesquisaClientesBean.filtro.email}" />
+	    		
 	    	</p:panelGrid>
 	    	
 	    	<p:dataTable id="clientesTable" value="#{pesquisaClientesBean.clientesFiltrados}" var="cliente"
@@ -43,14 +44,14 @@
 	    			<h:outputText value="#{cliente.nome}" />
 	    		</p:column>
 	    		<p:column headerText="CPF" style="width: 100px">
-	    			<h:outputText value="#{cliente.cpf}"/>
+	    			<h:outputText value="#{cliente.documentoReceitaFederal}"/>
 	    		</p:column>
 	    		<p:column headerText="Email" style="width: 250px">
 	    			<h:outputText value="#{cliente.email}" />
 	    		</p:column>
 	    		<p:column style="width: 100px; text-align: center">
-	    			<p:button outcome="/produtos/CadastroProduto" icon="ui-icon-pencil" title="Editar">
-	    				<f:param name="produto" value="#{produto.id}" />
+	    			<p:button outcome="/clientes/CadastroCliente" icon="ui-icon-pencil" title="Editar">
+	    				<f:param name="cliente" value="#{cliente.id}" />
 	    			</p:button>
 	    			<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
 	    					process="@this" update=":frmPesquisa:confirmacaoExclusaoDialog">

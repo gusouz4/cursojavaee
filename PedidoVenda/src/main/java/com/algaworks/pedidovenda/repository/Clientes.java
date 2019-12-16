@@ -33,7 +33,12 @@ public class Clientes implements Serializable {
 	}
 	
 	public Cliente porCPF(String documentoReceitaFederal) {
-		return this.manager.find(Cliente.class, documentoReceitaFederal);
+		Session session = manager.unwrap(Session.class);
+		Criteria criteria = session.createCriteria(Cliente.class);
+		
+		criteria.add(Restrictions.eq("documentoReceitaFederal", documentoReceitaFederal));
+		
+		return (Cliente) criteria.uniqueResult();
 	}
 	
 	public List<Cliente> porNome(String nome) {
@@ -72,7 +77,7 @@ public class Clientes implements Serializable {
 		}
 		
 		if (StringUtils.isNotBlank(filtro.getDocumentoReceitaFederal())) {
-			criteria.add(Restrictions.ilike("documentoReceitaFederal", filtro.getDocumentoReceitaFederal(), MatchMode.ANYWHERE));
+			criteria.add(Restrictions.ilike("documentoReceitaFederal", filtro.getDocumentoReceitaFederal()));
 		}
 		
 		
