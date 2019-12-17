@@ -45,11 +45,9 @@ public class PesquisaClientesBean implements Serializable {
 		return filtro;
 	}
 
-
 	public List<Cliente> getClientesFiltrados() {
 		return clientesFiltrados;
 	}
-
 
 	public Cliente getClienteSelecionado() {
 		return clienteSelecionado;
@@ -58,6 +56,5 @@ public class PesquisaClientesBean implements Serializable {
 	public void setClienteSelecionado(Cliente clienteSelecionado) {
 		this.clienteSelecionado = clienteSelecionado;
 	}
-
 
 }

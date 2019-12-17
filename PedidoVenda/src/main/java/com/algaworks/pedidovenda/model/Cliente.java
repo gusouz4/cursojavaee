@@ -15,10 +15,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.algaworks.pedidovenda.validation.CPF;
 
 @Entity
 @Table(name = "cliente")
+@DynamicUpdate
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -61,6 +65,7 @@ public class Cliente implements Serializable {
 
 	@Column(name = "doc_receita_federal", nullable = false, length = 14)
 	@NotBlank
+	@CPF
 	public String getDocumentoReceitaFederal() {
 		return documentoReceitaFederal;
 	}

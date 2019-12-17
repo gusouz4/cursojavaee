@@ -2,6 +2,7 @@ package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -70,6 +71,9 @@ public class CadastroClienteBean implements Serializable {
 	}
 
 	public Cliente getCliente() {
+		if(Objects.nonNull(cliente) && !cliente.getEnderecos().isEmpty()) {
+			this.endereco = cliente.getEnderecos().get(0);
+		}
 		return cliente;
 	}
 

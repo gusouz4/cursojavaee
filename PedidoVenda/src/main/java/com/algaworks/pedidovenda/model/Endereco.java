@@ -11,10 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.algaworks.pedidovenda.validation.CEP;
 
 @Entity
 @Table(name = "endereco")
+@DynamicUpdate
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -89,6 +93,7 @@ public class Endereco implements Serializable {
 
 	@Column(nullable = false, length = 9)
 	@NotBlank
+	@CEP
 	public String getCep() {
 		return cep;
 	}

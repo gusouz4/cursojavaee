@@ -1,5 +1,7 @@
 package com.algaworks.pedidovenda.converter;
 
+import java.util.Objects;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -32,8 +34,9 @@ public class ClienteConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		if (value != null) {
-			return ((Cliente) value).getId().toString();
+		Cliente clienteAux = ((Cliente) value);
+		if (Objects.nonNull(value) && Objects.nonNull(clienteAux.getId())) {
+			return clienteAux.getId().toString();
 		}
 		return "";
 	}

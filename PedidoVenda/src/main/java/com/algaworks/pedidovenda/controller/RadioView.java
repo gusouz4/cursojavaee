@@ -14,14 +14,14 @@ import com.algaworks.pedidovenda.model.TipoPessoa;
 public class RadioView implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private TipoPessoa tipoPessoa;
 	private List<TipoPessoa> tipos;
 
 	public void carregarTipos() {
-		   this.tipos = Arrays.asList(TipoPessoa.values());
-		}
-	
+		this.tipos = Arrays.asList(TipoPessoa.values());
+	}
+
 	public TipoPessoa getTipoPessoa() {
 		return tipoPessoa;
 	}
@@ -37,5 +37,5 @@ public class RadioView implements Serializable {
 	public void setTipos(List<TipoPessoa> tipos) {
 		this.tipos = tipos;
 	}
-	
+
 }
