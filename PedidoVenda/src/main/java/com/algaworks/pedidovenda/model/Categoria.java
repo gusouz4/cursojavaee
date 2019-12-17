@@ -14,8 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "categoria")
+@DynamicUpdate
 public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +40,7 @@ public class Categoria implements Serializable {
 	}
 
 	@Column(nullable = false, length = 60)
+	@NotBlank
 	public String getDescricao() {
 		return descricao;
 	}

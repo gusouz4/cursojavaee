@@ -1,15 +1,21 @@
 package com.algaworks.pedidovenda.controller;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.algaworks.pedidovenda.model.Categoria;
+import com.algaworks.pedidovenda.model.Produto;
 import com.algaworks.pedidovenda.repository.Categorias;
 import com.algaworks.pedidovenda.repository.filter.CategoriaFilter;
 import com.algaworks.pedidovenda.util.jsf.FacesUtil;
 
+@Named
+@ViewScoped
 public class PesquisaCategoriasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,16 +27,24 @@ public class PesquisaCategoriasBean implements Serializable {
 	private List<Categoria> categoriasFiltradas;
 
 	private Categoria categoriaSelecionada;
+	
+	@Inject
+	private Produto produto;
 
 	public PesquisaCategoriasBean() {
 		filtro = new CategoriaFilter();
 	}
 
 	public void excluir() {
-		categorias.remover(categoriaSelecionada);
-		categoriasFiltradas.remove(categoriaSelecionada);
+		if(categoriaSelecionada.getCategoriaPai() == null || categoriaSelecionada.getId() == produto.getCategoria().getId()) {
+			FacesUtil.addErrorMessage("Categoria " + categoriaSelecionada.getDescricao() + " não pode ser excluída.");
+		}
+		else {
+			categorias.remover(categoriaSelecionada);
+			categoriasFiltradas.remove(categoriaSelecionada);
 
-		FacesUtil.addInfoMessage("Categoria " + categoriaSelecionada.getDescricao() + " excluída com sucesso");
+			FacesUtil.addInfoMessage("Categoria " + categoriaSelecionada.getDescricao() + " excluída com sucesso.");
+		}
 	}
 
 	public void pesquisar() {
@@ -52,5 +66,15 @@ public class PesquisaCategoriasBean implements Serializable {
 	public CategoriaFilter getFiltro() {
 		return filtro;
 	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	
+	
 
 }

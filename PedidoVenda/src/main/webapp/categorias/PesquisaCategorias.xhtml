@@ -15,7 +15,7 @@
 	    	
 	    	<p:toolbar style="margin-top: 20px">
 	    		<p:toolbarGroup>
-	    			<p:commandButton value="Pesquisar" update="@form" />
+	    			<p:commandButton value="Pesquisar" update="@form" action="#{pesquisaCategoriasBean.pesquisar}"/>
 	    		</p:toolbarGroup>
 	    		<p:toolbarGroup align="right">
 	    			<p:button value="Novo" outcome="/categorias/CadastroCategoria" />
@@ -32,7 +32,7 @@
 	    		<p:inputText id="categoriaPai" size="60" value="#{pesquisaCategoriasBean.filtro.categoriaPai}" />
 	    	</p:panelGrid>
 	    	
-	    	<p:dataTable id="categoriasTable" value="#{pesquisaCategoriasBean.categoriasFiltrados}" var="categoria"
+	    	<p:dataTable id="categoriasTable" value="#{pesquisaCategoriasBean.categoriasFiltradas}" var="categoria"
 	    		style="margin-top: 20px" emptyMessage="Nenhuma categoria encontrado." rows="20"
 	    		paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
 	    		
@@ -42,9 +42,7 @@
 	    		<p:column headerText="Categoria" style="width: 250px">
 	    			<h:outputText value="#{categoria.categoriaPai.descricao} - #{categoria.descricao}"/>
 	    		</p:column>
-	    		<p:column headerText="Estoque" style="text-align: center; width: 100px">
-	    			<h:outputText value="#{categoria.quantidadeEstoque}" />
-	    		</p:column>
+	    		
 	    		<p:column style="width: 100px; text-align: center">
 	    			<p:button outcome="/categorias/CadastroCategoria" icon="ui-icon-pencil" title="Editar">
 	    				<f:param name="categoria" value="#{categoria.id}" />
@@ -59,7 +57,7 @@
 	    	</p:dataTable>
 	    	
 	    	<p:confirmDialog header="Exclusão de categoria" 
-	    		message="Tem certeza que deseja excluir o categoria #{pesquisaCategoriasBean.categoriaSelecionada.sku}?"
+	    		message="Tem certeza que deseja excluir o categoria #{pesquisaCategoriasBean.categoriaSelecionada.descricao}?"
 	    		widgetVar="confirmacaoExclusao"	id="confirmacaoExclusaoDialog">
 	    		<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
 	    		<p:commandButton value="Sim" oncomplete="confirmacaoExclusao.hide();"
