@@ -19,6 +19,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.algaworks.pedidovenda.validation.CPF;
+import com.algaworks.pedidovenda.validation.EMAIL;
 
 @Entity
 @Table(name = "cliente")
@@ -55,6 +56,7 @@ public class Cliente implements Serializable {
 	}
 
 	@Column(nullable = false, length = 255)
+	@EMAIL
 	public String getEmail() {
 		return email;
 	}
@@ -63,9 +65,8 @@ public class Cliente implements Serializable {
 		this.email = email;
 	}
 
-	@Column(name = "doc_receita_federal", nullable = false, length = 14)
-	@NotBlank
 	@CPF
+	@Column(name = "doc_receita_federal", nullable = false, length = 14)
 	public String getDocumentoReceitaFederal() {
 		return documentoReceitaFederal;
 	}

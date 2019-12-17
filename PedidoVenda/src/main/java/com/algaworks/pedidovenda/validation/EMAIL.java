@@ -13,10 +13,10 @@ import javax.validation.constraints.Pattern;
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {})
-@Pattern(regexp = "(^\\d{5}-\\d{3}$)")
-public @interface CEP {
+@Pattern(regexp = "([\\w\\.-]*[a-zA-Z0-9_]@[\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z])")
+public @interface EMAIL {
 	@OverridesAttribute(constraint = Pattern.class, name = "message")
-	String message() default "{com.algaworks.constraints.CEP.message}";
+	String message() default "{com.algaworks.constraints.EMAIL.message}";
 	
 	Class<?>[] groups() default {};
 	
