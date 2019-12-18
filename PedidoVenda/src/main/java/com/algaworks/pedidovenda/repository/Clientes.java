@@ -49,7 +49,7 @@ public class Clientes implements Serializable {
 	public Cliente guardar(Cliente cliente) {
 		return manager.merge(cliente);
 	}
-	
+	 
 	@Transactional
 	public void remover(Cliente cliente) {
 		try {
