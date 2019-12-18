@@ -15,9 +15,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.algaworks.pedidovenda.model.Cliente;
-import com.algaworks.pedidovenda.model.Produto;
 import com.algaworks.pedidovenda.repository.filter.ClienteFilter;
-import com.algaworks.pedidovenda.repository.filter.ProdutoFilter;
 import com.algaworks.pedidovenda.service.NegocioException;
 import com.algaworks.pedidovenda.util.jpa.Transactional;
 

@@ -14,8 +14,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.algaworks.pedidovenda.validation.EMAIL;
+
 @Entity
 @Table(name = "usuario")
+@DynamicUpdate
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +41,7 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 	
+	@NotBlank
 	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
@@ -44,6 +51,8 @@ public class Usuario implements Serializable {
 	}
 	
 	@Column(nullable = false, unique = true, length = 255)
+	@NotBlank
+	@EMAIL
 	public String getEmail() {
 		return email;
 	}
@@ -52,6 +61,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Column(nullable = false, length = 20)
+	@NotBlank
 	public String getSenha() {
 		return senha;
 	}

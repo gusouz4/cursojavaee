@@ -1,5 +1,7 @@
 package com.algaworks.pedidovenda.converter;
 
+import java.util.Objects;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -32,8 +34,9 @@ public class UsuarioConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		if (value != null) {
-			return ((Usuario) value).getId().toString();
+		Usuario usuarioAux = ((Usuario) value);
+		if (Objects.nonNull(value) && Objects.nonNull(usuarioAux.getId())) {
+		return usuarioAux.getId().toString();
 		}
 		return "";
 	}
